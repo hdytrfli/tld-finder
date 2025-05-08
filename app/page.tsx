@@ -3,9 +3,10 @@ import { Star } from 'lucide-react';
 import TLDFilter from '@/components/tld-filter';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
+import React from 'react';
 
 export default async function Page() {
-	const [updated, ...result] = await fetch('https://data.iana.org/TLD/tlds-alpha-by-domain.txt')
+	const [version, ...result] = await fetch('https://data.iana.org/TLD/tlds-alpha-by-domain.txt')
 		.then((res) => res.text())
 		.then((text) => text.split('\n'));
 
@@ -37,7 +38,9 @@ export default async function Page() {
 				</div>
 			</div>
 
-			<TLDFilter tlds={tlds} />
+			<React.Suspense fallback={<div className='h-96 animate-pulse rounded-md bg-muted' />}>
+				<TLDFilter tlds={tlds} />
+			</React.Suspense>
 
 			<p className='fixed bottom-8 left-8 text-xs text-muted-foreground'>
 				Data source{' '}
@@ -48,6 +51,7 @@ export default async function Page() {
 					className='font-medium underline'>
 					ICANN List of TLDs
 				</a>
+				<span className='sr-only'>{version}</span>
 			</p>
 		</main>
 	);

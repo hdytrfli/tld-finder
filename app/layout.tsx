@@ -1,7 +1,7 @@
 import '@/app/globals.css';
 import type React from 'react';
 import { Metadata } from 'next';
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Bricolage_Grotesque } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
