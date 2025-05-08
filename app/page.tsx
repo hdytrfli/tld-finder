@@ -14,7 +14,7 @@ export default async function Page() {
 		.slice(2)
 		.filter((line) => line.trim() !== '')
 		.filter((line) => !line.startsWith('XN--'))
-		.map((line) => '.' + line.trim());
+		.map((line) => '.' + line.trim().lower());
 
 	return (
 		<main className='container max-w-7xl py-16 px-4 grid gap-8'>

@@ -33,7 +33,7 @@ const DomainCard = React.forwardRef<HTMLDivElement, DomainCardProps>(({ tld, cla
 		<Card ref={ref} className={clsx('group', className)} {...props}>
 			<CardContent className='flex flex-col gap-2 p-4'>
 				<div className='flex items-center justify-between'>
-					<div className='font-mono lowercase font-medium flex gap-2 items-center ml-2'>
+					<div className='font-mono font-medium flex gap-2 items-center ml-2'>
 						<Globe className='size-4' />
 						<span>{tld}</span>
 					</div>
